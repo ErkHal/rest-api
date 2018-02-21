@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 //MongoDB connection settings
 const mongo = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/rest";
+//Use monk to connect to db instance, 'cause it just works
 var monk = require('monk');
 var db = monk(url);
 
@@ -20,17 +21,6 @@ const media = require('./routes/media');
 const port = process.env.PORT || 8080;
 
 const app = express();
-
-/*
-//Connect to mongoDB instance
-mongo.connect(url, (err, database) => {
-
-  if (err) throw err;
-  console.log("Connected to database !");
-  console.log(database);
-  db = database;
-});
-*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

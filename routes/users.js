@@ -1,3 +1,8 @@
+/*
+  users.js
+  Author Erkki Halinen
+*/
+
 var express = require('express');
 var router = express.Router();
 

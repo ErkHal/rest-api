@@ -7,7 +7,18 @@ const bodyParser = require('body-parser');
 
 //MongoDB connection settings
 const mongo = require('mongodb').MongoClient;
-const url = "mongodb://localhost:27017/rest";
+
+//get credentials
+const creds = require('./dbConfig.json');
+
+const url = "mongodb://"
++ creds.username
++ ":"
++ creds.password
++ "@"
++ "localhost:27017/rest";
+
+console.log(url);
 //Use monk to connect to db instance, 'cause it just works
 var monk = require('monk');
 var db = monk(url);

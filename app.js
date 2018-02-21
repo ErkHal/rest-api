@@ -12,11 +12,10 @@ const mongo = require('mongodb').MongoClient;
 const creds = require('./dbConfig.json');
 
 const url = "mongodb://"
-+ creds.username
-+ ":"
-+ creds.password
++ creds.username + ":" + creds.password
 + "@"
-+ "localhost:27017/rest";
++ creds.hostaddress + ":" + creds.port
++ "/" + creds.database;
 
 console.log(url);
 //Use monk to connect to db instance, 'cause it just works

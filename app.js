@@ -18,13 +18,14 @@ const url = "mongodb://"
 + "/" + creds.database;
 
 console.log(url);
-//Use monk to connect to db instance, 'cause it just works
+//Use monk to connect to db instance
 var monk = require('monk');
 var db = monk(url);
 
 // Routes for the API
 const index = require('./routes/index');
 const users = require('./routes/users');
+const login = require('./routes/login');
 const media = require('./routes/media');
 
 //Set a port to listen for incoming requests
@@ -50,9 +51,11 @@ app.use((req,res,next) => {
     next();
 });
 
+//Add paths to server
 app.use('/', index);
 app.use('/users', users);
 app.use('/media', media);
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

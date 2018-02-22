@@ -4,7 +4,7 @@
 */
 
 var express = require('express');
-var authenticate = require('./auth/authenticate');
+var authenticate = require('./security/authenticate');
 var router = express.Router();
 
 /* GET all media. */
